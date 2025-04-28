@@ -6,6 +6,12 @@
     <title>Eric Kamwana - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .icon-style {
+    font-size: 2rem;
+    color: #0d6efd;
+}
+    </style>
 </head>
 <body>
 
@@ -107,6 +113,51 @@
         </div>
     </section>
 
+    <!-- New Services Section (Marketing & Advertising) -->
+    <section class="services-section py-5 bg-light">
+        <div class="container text-center">
+            <h2 class="mb-4">What I Do For You</h2>
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="bi bi-globe2 icon-style"></i>
+                            </div>
+                            <h5 class="card-title">Web Development</h5>
+                            <p class="card-text">Building modern, responsive websites that not only look amazing but are optimized for lead generation, conversions, and business growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="bi bi-megaphone icon-style"></i>
+                            </div>
+                            <h5 class="card-title">Marketing Strategy</h5>
+                            <p class="card-text">Crafting powerful online marketing campaigns that amplify your brand, reach the right audience, and drive sustainable sales growth.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <i class="bi bi-bar-chart-line icon-style"></i>
+                            </div>
+                            <h5 class="card-title">Advertising Solutions</h5>
+                            <p class="card-text">Using SEO, Google Ads, and social media advertising to boost your organization's online visibility, traffic, and customer engagement.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-3">
+                <a href="#" class="btn btn-primary">More Services ➔</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -116,9 +167,19 @@
             document.getElementById("searchInput").classList.toggle("d-none");
         });
 
-        document.getElementById("themeToggle").addEventListener("click", function() {
+        const themeToggle = document.getElementById("themeToggle");
+        const darkMode = localStorage.getItem("dark-mode");
+
+        if (darkMode === "enabled") {
+            document.body.classList.add("dark-mode");
+            themeToggle.innerHTML = "☀️";
+        }
+
+        themeToggle.addEventListener("click", function () {
             document.body.classList.toggle("dark-mode");
-            this.innerHTML = document.body.classList.contains("dark-mode") ? "☀️" : "🌙";
+            const mode = document.body.classList.contains("dark-mode") ? "enabled" : "disabled";
+            localStorage.setItem("dark-mode", mode);
+            this.innerHTML = mode === "enabled" ? "☀️" : "🌙";
         });
 
         document.getElementById("widgetToggle").addEventListener("click", function() {
